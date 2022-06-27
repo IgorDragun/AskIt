@@ -5,5 +5,11 @@
   <time>
     <%= question.formatted_created_at %>
   </time>
-  <p><%= question.body %></p>
+  <p>
+    <%= question.body %>
+    <br>
+    <%= link_to "Show", question_path(question) %> |
+    <%= link_to "Edit", edit_question_path(question) %> |
+    <%= link_to "Destroy", question_path(question), data: {method: :delete, confirm: "Are you sure?"} %>
+  </p>
 <% end %>
