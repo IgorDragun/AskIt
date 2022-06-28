@@ -1,7 +1,6 @@
-class Question < ApplicationRecord
-  has_many :answers, dependent: :destroy
+class Answer < ApplicationRecord
+  belongs_to :question
 
-  validates :title, presence: true, length: {minimum: 2}
   validates :body, presence: true, length: {minimum: 2}
 
   def formatted_created_at
