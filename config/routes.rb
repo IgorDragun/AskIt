@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  resources :users, only: %i[new create]
+
   resources :questions do
     resources :answers, except: %i[new show]
   end
