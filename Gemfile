@@ -46,6 +46,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "pagy", "~> 5"
+gem "draper", "~> 4"
+gem "valid_email2", "~> 4"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
