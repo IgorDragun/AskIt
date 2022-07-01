@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AnswerDecorator < ApplicationDecorator
   delegate_all
 
@@ -11,7 +13,6 @@ class AnswerDecorator < ApplicationDecorator
   #   end
 
   def formatted_created_at
-    created_at.strftime("%Y-%m-%d %H:%M:%S")
+    created_at.strftime('%Y-%m-%d %H:%M:%S')
   end
-
 end
