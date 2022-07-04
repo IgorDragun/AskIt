@@ -1,0 +1,92 @@
+ru:
+  en: "Английский"
+  ru: "Русский"
+  activerecord:
+    models:
+      question: "Вопрос"
+      answer: "Ответ"
+      user: "Пользователь"
+    attributes:
+      question:
+        title: "Заголовок"
+        body: "Текст"
+      answer:
+        body: "Текст"
+      user:
+        email: "Email"
+        name: "Имя"
+
+  menu:
+    home: "Главная"
+    questions: "Вопросы"
+    dropdown:
+      edit_profile: "Редактировать профиль"
+      log_out: "Выход"
+      sign_up: "Регистрация"
+      log_in: "Вход"
+
+  pages:
+    index:
+      title: "Добро пожаловать в AskIt!"
+
+  questions:
+    index:
+      header: "Вопросы"
+    new:
+      title: "Новый вопрос"
+      placeholder: "Заголовок вопроса"
+    show:
+      first_header: "Напишите ваш ответ:"
+      second_header: "Ответы:"
+    edit:
+      title: "Редактировать вопрос"
+
+  answers:
+    edit:
+      title: "Редактировать ответ"
+
+  users:
+    new:
+      title: "Регистрация"
+      placeholders:
+        email: "Ваш email"
+        name: "Ваше имя"
+
+  sessions:
+    new:
+      title: "Вход"
+      placeholder: "Ваш email"
+
+  general:
+    btn:
+      new_question: "Новый вопрос"
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      submit_question: "Отправить вопрос"
+      submit_answer: "Отправить ответ"
+      register: "Зарегистрироваться"
+      save: "Сохранить"
+      log_in: "Войти"
+    confirm:
+      delete: "Вы уверены?"
+
+  flash_messages:
+    success:
+      questions:
+        created: "Вопрос создан!"
+        updated: "Вопрос обновлен!"
+        deleted: "Вопрос удален!"
+      answers:
+        created: "Ответ создан!"
+        updated: "Ответ обновлен!"
+        deleted: "Ответ удален!"
+      sessions:
+        signed_in: "Добро пожаловать"
+        signed_out: "Увидимся позже!"
+      users:
+        created: "Добро подаловать!"
+        updated: "Ваш профиль был успешно обновлен!"
+    warning:
+      sessions:
+        incorrect_data: "Неверно указан email и/или пароль!"

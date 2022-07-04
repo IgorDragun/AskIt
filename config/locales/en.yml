@@ -1,33 +1,92 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  en: "English"
+  ru: "Russian"
+  activerecord:
+    models:
+      question: "Question"
+      answer: "Answer"
+      user: "User"
+    attributes:
+      question:
+        title: "Title"
+        body: "Body"
+      answer:
+        body: "Body"
+      user:
+        email: "Email"
+        name: "Name"
+
+  menu:
+    home: "Main"
+    questions: "Questions"
+    dropdown:
+      edit_profile: "Edit profile"
+      log_out: "Log Out"
+      sign_up: "Sign Up"
+      log_in: "Log In"
+
+  pages:
+    index:
+      title: "Welcome to AskIt!"
+
+  questions:
+    index:
+      header: "Questions"
+    new:
+      title: "New question"
+      placeholder: "Title"
+    show:
+      first_header: "Write your answer:"
+      second_header: "Answers:"
+    edit:
+      title: "Edit question"
+
+  answers:
+    edit:
+      title: "Edit answer"
+
+  users:
+    new:
+      title: "Sign Up"
+      placeholders:
+        email: "Email"
+        name: "Name"
+
+  sessions:
+    new:
+      title: "Log In"
+      placeholder: "Email"
+
+  general:
+    btn:
+      new_question: "New question"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      submit_question: "Submit question"
+      submit_answer: "Submit answer"
+      register: "Register"
+      save: "Save"
+      log_in: "Log In"
+    confirm:
+      delete: "Are you sure?"
+
+  flash_messages:
+    success:
+      questions:
+        created: "Question created!"
+        updated: "Question updated!"
+        deleted: "Question deleted!"
+      answers:
+        created: "Answer created!"
+        updated: "Answer updated!"
+        deleted: "Answer deleted!"
+      sessions:
+        signed_in: "Welcome back"
+        signed_out: "See you later!"
+      users:
+        created: "Welcome to the app"
+        updated: "Your profile was successfully updated!"
+    warning:
+      sessions:
+        incorrect_data: "Incorrect email and/or password!"

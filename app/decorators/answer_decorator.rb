@@ -13,6 +13,6 @@ class AnswerDecorator < ApplicationDecorator
   #   end
 
   def formatted_created_at
-    created_at.strftime('%Y-%m-%d %H:%M:%S')
+    l created_at, format: :long
   end
 end
