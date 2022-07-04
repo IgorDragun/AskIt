@@ -13,8 +13,14 @@ en:
       answer:
         body: "Body"
       user:
+        created_at: "Created at"
         email: "Email"
         name: "Name"
+        old_password: "Old password"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        updated_at: "Updated at"
+      models: "Question"
 
   menu:
     home: "Main"
@@ -28,6 +34,7 @@ en:
   pages:
     index:
       title: "Welcome to AskIt!"
+
 
   questions:
     index:
@@ -51,11 +58,26 @@ en:
       placeholders:
         email: "Email"
         name: "Name"
+    edit:
+      title: "Edit profile"
+
+  admin:
+    users:
+      index:
+        currently_at: "Users"
+        title: "Admin Users"
+        download_zipped: "Download zipped XLSX"
+        upload_form:
+          title: "Upload users from XLSX"
+          description: "Select File"
 
   sessions:
     new:
       title: "Log In"
-      placeholder: "Email"
+      email: "Email"
+      email_placeholder: "Your email"
+      password: "Password"
+      check_box: "Remember me"
 
   general:
     btn:
@@ -68,8 +90,11 @@ en:
       register: "Register"
       save: "Save"
       log_in: "Log In"
+      upload: "Upload"
     confirm:
       delete: "Are you sure?"
+    omission:
+      question_body: "...(continued)"
 
   flash_messages:
     success:
@@ -85,7 +110,7 @@ en:
         signed_in: "Welcome back"
         signed_out: "See you later!"
       users:
-        created: "Welcome to the app"
+        created: "Welcome to the app, %{name}!"
         updated: "Your profile was successfully updated!"
     warning:
       sessions:

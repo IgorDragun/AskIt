@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       sign_in(@user)
-      flash[:success] = t("flash_messages.success.users.created") + ", #{current_user.name_or_email}!"
+      flash[:success] = t("flash_messages.success.users.created", name: current_user.name_or_email)
       redirect_to root_path
     else
       render :new

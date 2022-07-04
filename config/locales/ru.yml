@@ -13,8 +13,14 @@ ru:
       answer:
         body: "Текст"
       user:
+        created_at: "Создан"
         email: "Email"
         name: "Имя"
+        old_password: "Старый пароль"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        updated_at: "Обновлён"
+      models: "Вопрос"
 
   menu:
     home: "Главная"
@@ -51,11 +57,26 @@ ru:
       placeholders:
         email: "Ваш email"
         name: "Ваше имя"
+    edit:
+      title: "Редактировать профиль"
+
+  admin:
+    users:
+      index:
+        currently_at: "Пользователи"
+        title: "Управление пользователями"
+        download_zipped: "Выгрузить архив с XLSX"
+        upload_form:
+          title: "Загрузить пользователей из XLSX"
+          description: "Выберите архив"
 
   sessions:
     new:
       title: "Вход"
-      placeholder: "Ваш email"
+      email: "Email"
+      email_placeholder: "Ваш email"
+      password: "Пароль"
+      check_box: "Запомнить меня"
 
   general:
     btn:
@@ -68,8 +89,11 @@ ru:
       register: "Зарегистрироваться"
       save: "Сохранить"
       log_in: "Войти"
+      upload: "Загрузить"
     confirm:
       delete: "Вы уверены?"
+    omission:
+      question_body: "...(продолжение)"
 
   flash_messages:
     success:
@@ -85,7 +109,7 @@ ru:
         signed_in: "Добро пожаловать"
         signed_out: "Увидимся позже!"
       users:
-        created: "Добро подаловать!"
+        created: "Добро пожаловать, %{name}!"
         updated: "Ваш профиль был успешно обновлен!"
     warning:
       sessions:

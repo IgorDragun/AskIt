@@ -12,6 +12,11 @@ class User < ApplicationRecord
   validate :password_complexity
   validate :password_presence
 
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
+
+  before_save :set_gravatar_hash, if: :email_changed?
+
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
     # rubocop:disable Rails/SkipsModelValidations
@@ -39,6 +44,13 @@ class User < ApplicationRecord
 
   private
 
+  def set_gravatar_hash
+    return unless email.present?
+
+    hash = Digest::MD5.hexdigest email.strip.downcase
+    self.gravatar_hash = hash
+  end
+
   def password_complexity
     # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
     return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
@@ -58,4 +70,5 @@ class User < ApplicationRecord
 
     errors.add :old_password, 'is incorrect'
   end
+
 end
