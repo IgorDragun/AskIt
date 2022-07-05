@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  include QuestionsAnswers
   include ActionView::RecordIdentifier
 
   before_action :set_question!
@@ -10,19 +11,16 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build answer_create_params
 
     if @answer.save
-      flash[:success] = t("flash_messages.success.answers.created")
+      flash[:success] = t('flash_messages.success.answers.created')
       redirect_to question_path(@question)
     else
-      @question = @question.decorate
-      @pagy, @answers = pagy @question.answers.order created_at: :desc
-      @answers = @answers.decorate
-      render 'questions/show'
+      load_question_answers(do_render: true)
     end
   end
 
   def destroy
     @answer.destroy
-    flash[:success] = t("flash_messages.success.answers.deleted")
+    flash[:success] = t('flash_messages.success.answers.deleted')
     redirect_to questions_path(@question)
   end
 
@@ -30,7 +28,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update answer_update_params
-      flash[:success] = t("flash_messages.success.answers.updated")
+      flash[:success] = t('flash_messages.success.answers.updated')
       redirect_to question_path(@question, anchor: dom_id(@answer))
     else
       render :edit

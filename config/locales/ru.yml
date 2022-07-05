@@ -7,6 +7,8 @@ ru:
       answer: "Ответ"
       user: "Пользователь"
     attributes:
+      comment:
+        body: "Текст"
       question:
         title: "Заголовок"
         body: "Текст"
@@ -84,12 +86,14 @@ ru:
       show: "Показать"
       edit: "Редактировать"
       delete: "Удалить"
+      submit: "Отправить"
       submit_question: "Отправить вопрос"
       submit_answer: "Отправить ответ"
       register: "Зарегистрироваться"
       save: "Сохранить"
       log_in: "Войти"
       upload: "Загрузить"
+      show_comments: "Показать комментарии"
     confirm:
       delete: "Вы уверены?"
     omission:
@@ -111,6 +115,9 @@ ru:
       users:
         created: "Добро пожаловать, %{name}!"
         updated: "Ваш профиль был успешно обновлен!"
+      comments:
+        created: "Комментарий создан!"
+        deleted: "Комментарий удалён!"
     warning:
       sessions:
         incorrect_data: "Неверно указан email и/или пароль!"

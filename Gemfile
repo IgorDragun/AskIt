@@ -57,12 +57,11 @@ gem 'draper', '~> 4'
 # gem 'lokalise_rails', '~> 3'
 gem 'pagy', '~> 5'
 # gem 'pundit', '~> 2.1'
+gem 'rails-i18n', '~> 7'
 gem 'rubyXL', '~> 3.4'
 gem 'rubyzip', '~> 2'
 gem 'valid_email2', '~> 4'
-gem 'rails-i18n', '~> 7'
 # gem 'sidekiq', '~> 6'
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -73,6 +72,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'bullet'
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.11', require: false

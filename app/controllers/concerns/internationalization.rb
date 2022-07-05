@@ -9,10 +9,10 @@ module Internationalization
 
     private
 
-    def switch_locale(&action)
+    def switch_locale(&)
       locale = locale_from_url || locale_from_headers || I18n.default_locale
-      response.set_header("Content-Language", locale)
-      I18n.with_locale locale, &action
+      response.set_header('Content-Language', locale)
+      I18n.with_locale(locale, &)
     end
 
     # Adapted from https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb
@@ -25,7 +25,7 @@ module Internationalization
     end
 
     def locale_from_headers
-      header = request.env["HTTP_ACCEPT_LANGUAGE"]
+      header = request.env['HTTP_ACCEPT_LANGUAGE']
 
       return if header.nil?
 
@@ -58,7 +58,7 @@ module Internationalization
     end
 
     def match?(str1, str2)
-      str1.to_s.casecmp(str2.to_s) == 0
+      str1.to_s.casecmp(str2.to_s).zero?
     end
 
     def default_url_options

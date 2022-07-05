@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  include QuestionsAnswers
   before_action :set_question!, only: %i[edit update destroy show]
 
   def index
-    @pagy, @questions = pagy Question.order(created_at: :desc)
+    @pagy, @questions = pagy Question.includes(:user).order(created_at: :desc)
     @questions = @questions.decorate
   end
 
@@ -15,7 +16,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build question_params
     if @question.save
-      flash[:success] = t("flash_messages.success.questions.created")
+      flash[:success] = t('flash_messages.success.questions.created')
       redirect_to questions_path
     else
       render :new
@@ -26,7 +27,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update question_params
-      flash[:success] = t("flash_messages.success.questions.updated")
+      flash[:success] = t('flash_messages.success.questions.updated')
       redirect_to questions_path
     else
       render :edit
@@ -35,15 +36,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    flash[:success] = t("flash_messages.success.questions.deleted")
+    flash[:success] = t('flash_messages.success.questions.deleted')
     redirect_to questions_path
   end
 
   def show
-    @question = @question.decorate
-    @answer = @question.answers.build
-    @pagy, @answers = pagy @question.answers.order(created_at: :desc)
-    @answers = @answers.decorate
+    load_question_answers
   end
 
   private
