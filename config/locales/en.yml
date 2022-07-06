@@ -41,6 +41,7 @@ en:
   questions:
     index:
       header: "Questions"
+      search_by_tags: "Search by tags"
     new:
       title: "New question"
       placeholder: "Title"
@@ -95,6 +96,7 @@ en:
       log_in: "Log In"
       upload: "Upload"
       show_comments: "Show comments"
+      search: "Search"
     confirm:
       delete: "Are you sure?"
     omission:

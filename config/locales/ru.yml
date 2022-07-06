@@ -40,6 +40,7 @@ ru:
   questions:
     index:
       header: "Вопросы"
+      search_by_tags: "Поиск по тэгам"
     new:
       title: "Новый вопрос"
       placeholder: "Заголовок вопроса"
@@ -94,6 +95,7 @@ ru:
       log_in: "Войти"
       upload: "Загрузить"
       show_comments: "Показать комментарии"
+      search: "Поиск"
     confirm:
       delete: "Вы уверены?"
     omission:

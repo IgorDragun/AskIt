@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
 <head>
   <meta charset="utf-8">
   <title><%= full_title(yield(:page_title)) %></title>
@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body data-lang="<%= I18n.locale %>">
 <%= yield(:main_menu) %>
 <main class="container mt-3">
   <% flash.each do |k, v| %>
