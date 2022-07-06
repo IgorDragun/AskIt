@@ -28,6 +28,7 @@ en:
   menu:
     home: "Main"
     questions: "Questions"
+    users: "Users"
     dropdown:
       edit_profile: "Edit profile"
       log_out: "Log Out"
@@ -138,6 +139,12 @@ en:
           updated: "User updated!"
           deleted: "User deleted!"
           imported: "Users imported!"
+      authenticate:
+        already_signed_in: "You are already signed in!"
     warning:
       sessions:
         incorrect_data: "Incorrect email and/or password!"
+      authorize:
+        not_authorize: "You are not authorized to perform this action!"
+      authenticate:
+        not_signed_in: "You are not signed in!"

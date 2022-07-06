@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  enum role: {basic: 0, moderator: 1, admin: 2}, _suffix: :role
+  enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
   attr_accessor :old_password, :remember_token, :admin_edit
 
@@ -19,6 +19,14 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   before_save :set_gravatar_hash, if: :email_changed?
+
+  def guest?
+    false
+  end
+
+  def author?(obj)
+    obj.user == self
+  end
 
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
@@ -40,8 +48,6 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
   end
 
-
-
   private
 
   def set_gravatar_hash
@@ -53,12 +59,12 @@ class User < ApplicationRecord
 
   def digest(string)
     cost = if ActiveModel::SecurePassword
-                .min_cost
+              .min_cost
              BCrypt::Engine::MIN_COST
            else
              BCrypt::Engine.cost
            end
-    BCrypt::Password.create(string, cost: cost)
+    BCrypt::Password.create(string, cost:)
   end
 
   def correct_old_password
@@ -80,6 +86,4 @@ class User < ApplicationRecord
   def password_presence
     errors.add(:password, :blank) if password_digest.blank?
   end
-
-
 end

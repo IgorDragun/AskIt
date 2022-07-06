@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 module Admin
-  class UsersController < ApplicationController
+  class UsersController < BaseController
     before_action :require_authentication
     before_action :set_user!, only: %i[edit update destroy]
+    before_action :authorize_user!
+    after_action :verify_authorized
 
     def index
       respond_to do |format|
@@ -18,18 +20,17 @@ module Admin
     def create
       if params[:archive].present?
         UserBulkService.call params[:archive]
-        flash[:success] = t("flash_messages.success.admin.users.imported")
+        flash[:success] = t('flash_messages.success.admin.users.imported')
       end
 
       redirect_to admin_users_path
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @user.update user_params
-        flash[:success] = t("flash_messages.success.admin.users.updated")
+        flash[:success] = t('flash_messages.success.admin.users.updated')
         redirect_to admin_users_path
       else
         render :edit
@@ -38,15 +39,15 @@ module Admin
 
     def destroy
       @user.destroy
-      flash[:success] = t("flash_messages.success.admin.users.deleted")
+      flash[:success] = t('flash_messages.success.admin.users.deleted')
       redirect_to admin_users_path
     end
 
-
-
     private
 
+    # rubocop:disable Metrics/MethodLength
     def respond_with_zipped_users
+      # rubocop:enable Metrics/MethodLength
       compressed_filestream = Zip::OutputStream.write_buffer do |zos|
         User.order(created_at: :desc).each do |user|
           zos.put_next_entry "user_#{user.id}.xlsx"
@@ -72,6 +73,10 @@ module Admin
       params.require(:user).permit(
         :email, :name, :password, :password_confirmation, :role
       ).merge(admin_edit: true)
+    end
+
+    def authorize_user!
+      authorize(@user || User)
     end
   end
 end

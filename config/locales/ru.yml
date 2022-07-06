@@ -28,6 +28,7 @@ ru:
   menu:
     home: "Главная"
     questions: "Вопросы"
+    users: "Пользователи"
     dropdown:
       edit_profile: "Редактировать профиль"
       log_out: "Выход"
@@ -137,6 +138,12 @@ ru:
           updated: "Пользователь обновлён!"
           deleted: "Пользователь удалён!"
           imported: "Пользователи импортированы!"
+      authenticate:
+        already_signed_in: "Вы уже вошли в систему!"
     warning:
       sessions:
         incorrect_data: "Неверно указан email и/или пароль!"
+      authorize:
+        not_authorize: "У Вас нет прав на выполнение данного действия!"
+      authenticate:
+        not_signed_in: "Вы не вошли в систему!"

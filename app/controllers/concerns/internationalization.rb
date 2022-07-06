@@ -9,10 +9,10 @@ module Internationalization
 
     private
 
-    def switch_locale(&)
+    def switch_locale(&action)
       locale = locale_from_url || locale_from_headers || I18n.default_locale
-      response.set_header('Content-Language', locale)
-      I18n.with_locale(locale, &)
+      response.set_header 'Content-Language', locale
+      I18n.with_locale locale, &action
     end
 
     # Adapted from https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb
@@ -20,8 +20,6 @@ module Internationalization
       locale = params[:locale]
 
       return locale if I18n.available_locales.map(&:to_s).include?(locale)
-
-      nil
     end
 
     def locale_from_headers
@@ -53,7 +51,7 @@ module Internationalization
     end
 
     def detect_from_available(locales)
-      locale = locales.reverse.find { |locale| I18n.available_locales.any? { |al| match?(al, locale) } }
+      locale = locales.reverse.find { |l| I18n.available_locales.any? { |al| match?(al, l) } }
       I18n.available_locales.find { |al| match?(al, locale) } if locale
     end
 

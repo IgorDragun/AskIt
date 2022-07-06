@@ -20,11 +20,16 @@
           </div>
         </section>
 
-        <%= link_to t("general.btn.edit"), edit_question_answer_path(question, answer),
-                    class: "btn btn-secondary btn-sm" %>
-        <%= link_to t("general.btn.delete"), question_answer_path(question, answer),
-                    class: "btn btn-danger btn-sm",
-                    data: { method: :delete, confirm: t("general.confirm.delete") } %>
+        <% if policy(answer).edit? %>
+          <%= link_to t("general.btn.edit"), edit_question_answer_path(question, answer),
+                      class: "btn btn-secondary btn-sm" %>
+        <% end %>
+
+        <% if policy(answer).destroy? %>
+          <%= link_to t("general.btn.delete"), question_answer_path(question, answer),
+                      class: "btn btn-danger btn-sm",
+                      data: { method: :delete, confirm: t("general.confirm.delete") } %>
+        <% end %>
       </div>
     </div>
   </div>
