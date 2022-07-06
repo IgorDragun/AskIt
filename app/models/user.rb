@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :old_password, :remember_token
+  enum role: {basic: 0, moderator: 1, admin: 2}, _suffix: :role
 
-  validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
+  attr_accessor :old_password, :remember_token, :admin_edit
 
   has_secure_password validations: false
 
-  validates :password, confirmation: true, allow_blank: true
-  validate :correct_old_password, on: :update, if: -> { password.present? }
-  validate :password_complexity
-  validate :password_presence
-
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
+
+  validate :password_presence
+  validate :correct_old_password, on: :update, if: -> { password.present? && !admin_edit }
+  validates :password, confirmation: true, allow_blank: true
+
+  validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
+  validate :password_complexity
+  validates :role, presence: true
 
   before_save :set_gravatar_hash, if: :email_changed?
 
@@ -37,10 +40,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
   end
 
-  def digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost:)
-  end
+
 
   private
 
@@ -49,6 +49,22 @@ class User < ApplicationRecord
 
     hash = Digest::MD5.hexdigest email.strip.downcase
     self.gravatar_hash = hash
+  end
+
+  def digest(string)
+    cost = if ActiveModel::SecurePassword
+                .min_cost
+             BCrypt::Engine::MIN_COST
+           else
+             BCrypt::Engine.cost
+           end
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def correct_old_password
+    return if BCrypt::Password.new(password_digest_was).is_password?(old_password)
+
+    errors.add :old_password, 'is incorrect'
   end
 
   def password_complexity
@@ -65,9 +81,5 @@ class User < ApplicationRecord
     errors.add(:password, :blank) if password_digest.blank?
   end
 
-  def correct_old_password
-    return if BCrypt::Password.new(password_digest_was).is_password?(old_password)
 
-    errors.add :old_password, 'is incorrect'
-  end
 end

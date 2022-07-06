@@ -22,6 +22,7 @@ ru:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         updated_at: "Обновлён"
+        role: "Роль"
       models: "Вопрос"
 
   menu:
@@ -69,9 +70,20 @@ ru:
         currently_at: "Пользователи"
         title: "Управление пользователями"
         download_zipped: "Выгрузить архив с XLSX"
+        action_column: "Доступные действия"
         upload_form:
           title: "Загрузить пользователей из XLSX"
           description: "Выберите архив"
+      edit:
+        title: "Редактировать пользователя"
+        placeholders:
+          email: "Email"
+          name: "Имя"
+
+  roles:
+    basic: "Пользователь"
+    moderator: "Модератор"
+    admin: "Администратор"
 
   sessions:
     new:
@@ -120,6 +132,11 @@ ru:
       comments:
         created: "Комментарий создан!"
         deleted: "Комментарий удалён!"
+      admin:
+        users:
+          updated: "Пользователь обновлён!"
+          deleted: "Пользователь удалён!"
+          imported: "Пользователи импортированы!"
     warning:
       sessions:
         incorrect_data: "Неверно указан email и/или пароль!"

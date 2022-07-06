@@ -22,6 +22,7 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         updated_at: "Updated at"
+        role: "Role"
       models: "Question"
 
   menu:
@@ -70,9 +71,20 @@ en:
         currently_at: "Users"
         title: "Admin Users"
         download_zipped: "Download zipped XLSX"
+        action_column: "Available actions"
         upload_form:
           title: "Upload users from XLSX"
           description: "Select File"
+      edit:
+        title: "Edit user"
+        placeholders:
+          email: "Email"
+          name: "Name"
+
+  roles:
+    basic: "Basic"
+    moderator: "Moderator"
+    admin: "Administrator"
 
   sessions:
     new:
@@ -121,6 +133,11 @@ en:
       comments:
         created: "Comment created!"
         deleted: "Comment deleted!"
+      admin:
+        users:
+          updated: "User updated!"
+          deleted: "User deleted!"
+          imported: "Users imported!"
     warning:
       sessions:
         incorrect_data: "Incorrect email and/or password!"
