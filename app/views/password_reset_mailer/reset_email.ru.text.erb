@@ -1,0 +1,4 @@
+Кто-то запросил смену пароля для вашего аккаунта. Пожалуйста, перейдите по ссылке для сброса пароля:
+
+<%= url_for edit_password_reset_url(user: { password_reset_token: @user.password_reset_token,
+                                            email: @user.email }, locale: :ru) %>

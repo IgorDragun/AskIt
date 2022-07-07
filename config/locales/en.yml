@@ -1,6 +1,8 @@
 en:
   en: "English"
   ru: "Russian"
+
+
   activerecord:
     models:
       question: "Question"
@@ -25,6 +27,7 @@ en:
         role: "Role"
       models: "Question"
 
+
   menu:
     home: "Main"
     questions: "Questions"
@@ -34,6 +37,7 @@ en:
       log_out: "Log Out"
       sign_up: "Sign Up"
       log_in: "Log In"
+
 
   pages:
     index:
@@ -53,9 +57,11 @@ en:
     edit:
       title: "Edit question"
 
+
   answers:
     edit:
       title: "Edit answer"
+
 
   users:
     new:
@@ -65,6 +71,7 @@ en:
         name: "Name"
     edit:
       title: "Edit profile"
+
 
   admin:
     users:
@@ -82,10 +89,12 @@ en:
           email: "Email"
           name: "Name"
 
+
   roles:
     basic: "Basic"
     moderator: "Moderator"
     admin: "Administrator"
+
 
   sessions:
     new:
@@ -94,6 +103,25 @@ en:
       email_placeholder: "Your email"
       password: "Password"
       check_box: "Remember me"
+    links:
+      forgot_password: "I forgot my password"
+
+
+  password_resets:
+    new:
+      title: "Reset password"
+      form:
+        email: "Email"
+        submit: "Send reset instructions"
+        back: "Back to Sign In"
+      reset_email:
+        subject: "Password reset | AskIt"
+    edit:
+      title: "Enter new password"
+      submit: "Reset my password"
+    user_messages:
+      fail: "Could not reset your password...."
+
 
   general:
     btn:
@@ -114,6 +142,7 @@ en:
       delete: "Are you sure?"
     omission:
       question_body: "...(continued)"
+
 
   flash_messages:
     success:
@@ -141,6 +170,11 @@ en:
           imported: "Users imported!"
       authenticate:
         already_signed_in: "You are already signed in!"
+      reset_password:
+        sent_message: "Password reset instructions were sent to your email address."
+        was_reset: "Your password was reset."
+
+
     warning:
       sessions:
         incorrect_data: "Incorrect email and/or password!"

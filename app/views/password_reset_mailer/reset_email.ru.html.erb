@@ -1,0 +1,8 @@
+<p>Кто-то запросил смену пароля для вашего аккаунта.</p>
+
+<p>
+  <%= link_to "Сменить мой пароль",
+              edit_password_reset_url(user: { password_reset_token: @user.password_reset_token,
+                                              email: @user.email }, locale: :ru),
+              target: "_blank" %>
+</p>

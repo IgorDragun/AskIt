@@ -1,6 +1,8 @@
 ru:
   en: "Английский"
   ru: "Русский"
+
+
   activerecord:
     models:
       question: "Вопрос"
@@ -25,6 +27,7 @@ ru:
         role: "Роль"
       models: "Вопрос"
 
+
   menu:
     home: "Главная"
     questions: "Вопросы"
@@ -35,9 +38,11 @@ ru:
       sign_up: "Регистрация"
       log_in: "Вход"
 
+
   pages:
     index:
       title: "Добро пожаловать в AskIt!"
+
 
   questions:
     index:
@@ -52,9 +57,11 @@ ru:
     edit:
       title: "Редактировать вопрос"
 
+
   answers:
     edit:
       title: "Редактировать ответ"
+
 
   users:
     new:
@@ -64,6 +71,7 @@ ru:
         name: "Ваше имя"
     edit:
       title: "Редактировать профиль"
+
 
   admin:
     users:
@@ -81,10 +89,12 @@ ru:
           email: "Email"
           name: "Имя"
 
+
   roles:
     basic: "Пользователь"
     moderator: "Модератор"
     admin: "Администратор"
+
 
   sessions:
     new:
@@ -93,6 +103,25 @@ ru:
       email_placeholder: "Ваш email"
       password: "Пароль"
       check_box: "Запомнить меня"
+    links:
+      forgot_password: "Я забыл мой пароль"
+
+
+  password_resets:
+    new:
+      title: "Сброс пароля"
+      form:
+        email: "Email"
+        submit: "Отправить инструкции для сброса пароля"
+        back: "Назад ко входу в систему"
+      reset_email:
+        subject: "Сброс пароля | AskIt"
+    edit:
+      title: "Выберите новый пароль"
+      submit: "Сбросить пароль"
+    user_messages:
+      fail: "Не удалось сбросить ваш пароль..."
+
 
   general:
     btn:
@@ -113,6 +142,7 @@ ru:
       delete: "Вы уверены?"
     omission:
       question_body: "...(продолжение)"
+
 
   flash_messages:
     success:
@@ -140,6 +170,9 @@ ru:
           imported: "Пользователи импортированы!"
       authenticate:
         already_signed_in: "Вы уже вошли в систему!"
+      reset_password:
+        sent_message: "Инструкции по смене пароля были отправлены на ваш email."
+        was_reset: "Ваш пароль был сброшен."
     warning:
       sessions:
         incorrect_data: "Неверно указан email и/или пароль!"
