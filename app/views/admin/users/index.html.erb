@@ -4,8 +4,8 @@
 <h1 class="mb-4"><%= t(".title") %></h1>
 
 <div class="btn-group mb-3">
-  <%= link_to t(".download_zipped"), admin_users_path(format: :zip),
-              class: "btn btn-secondary" %>
+  <%= link_to t(".download_zipped.btn_name"), admin_users_path(format: :zip),
+              class: "btn btn-secondary", data: {confirm: t(".download_zipped.confirm_msg")} %>
 </div>
 
 <%= pagination @pagy %>

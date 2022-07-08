@@ -61,7 +61,7 @@ gem 'rails-i18n', '~> 7'
 gem 'rubyXL', '~> 3.4'
 gem 'rubyzip', '~> 2'
 gem 'valid_email2', '~> 4'
-# gem 'sidekiq', '~> 6'
+gem 'sidekiq', '~> 6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

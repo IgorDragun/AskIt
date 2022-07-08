@@ -78,16 +78,30 @@ ru:
       index:
         currently_at: "Пользователи"
         title: "Управление пользователями"
-        download_zipped: "Выгрузить архив с XLSX"
+        download_zipped:
+          btn_name: "Выгрузить архив с XLSX"
+          confirm_msg: "Вы уверены?"
+          success_msg: "Вы получите письмо, когда операция завершится"
         action_column: "Доступные действия"
         upload_form:
           title: "Загрузить пользователей из XLSX"
           description: "Выберите архив"
+      create:
+        success_msg: "Вы получите письмо, когда операция завершится"
       edit:
         title: "Редактировать пользователя"
         placeholders:
           email: "Email"
           name: "Имя"
+      user_mailer:
+        bulk_import_done:
+          subject: "Импорт пользователей завершён | AskIt"
+        bulk_import_fail:
+          subject: "Импорт пользователей не удался | AskIt"
+        bulk_export_done:
+          subject: "Экспорт пользователей завершён | AskIt"
+        bulk_export_fail:
+          subject: "Экспорт пользователей не удался | AskIt"
 
 
   roles:
@@ -167,7 +181,6 @@ ru:
         users:
           updated: "Пользователь обновлён!"
           deleted: "Пользователь удалён!"
-          imported: "Пользователи импортированы!"
       authenticate:
         already_signed_in: "Вы уже вошли в систему!"
       reset_password:
