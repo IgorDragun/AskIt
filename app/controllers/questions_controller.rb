@@ -9,7 +9,8 @@ class QuestionsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @pagy, @questions = pagy Question.all_by_tags(params[:tag_ids])
+    @tags = Tag.where(id: params[:tag_ids]) if params[:tag_ids]
+    @pagy, @questions = pagy Question.all_by_tags(@tags), link_extra: 'data-turbo-frame="pagination_pagy"'
     @questions = @questions.decorate
   end
 
@@ -20,10 +21,19 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build question_params
     if @question.save
-      flash[:success] = t('flash_messages.success.questions.created')
-      redirect_to questions_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('flash_messages.success.questions.created')
+          redirect_to questions_path
+        end
+
+        format.turbo_stream do
+          @question = @question.decorate
+          flash.now[:success] = t('flash_messages.success.questions.created')
+        end
+      end
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -31,8 +41,17 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update question_params
-      flash[:success] = t('flash_messages.success.questions.updated')
-      redirect_to questions_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('flash_messages.success.questions.updated')
+          redirect_to questions_path
+        end
+
+        format.turbo_stream do
+          @question = @question.decorate
+          flash.now[:success] = t('flash_messages.success.questions.updated')
+        end
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,8 +59,16 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    flash[:success] = t('flash_messages.success.questions.deleted')
-    redirect_to questions_path, status: :see_other
+    respond_to do |format|
+      format.html do
+        flash[:success] = t('flash_messages.success.questions.deleted')
+        redirect_to questions_path, status: :see_other
+      end
+
+      format.turbo_stream do
+        flash.now[:success] = t('flash_messages.success.questions.deleted')
+      end
+    end
   end
 
   def show

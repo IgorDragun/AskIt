@@ -19,11 +19,21 @@
 </section>
 
 <% if policy(:question).new? %>
-  <%= link_to t("general.btn.new_question"), new_question_path, class: "btn btn-primary btn-lg mb-3" %>
+  <%= link_to t("general.btn.new_question"), new_question_path,
+              class: "btn btn-primary btn-lg mb-3",
+              data: { turbo_frame: dom_id(Question.new) } %>
+
+  <dev class="my-3">
+    <%= turbo_frame_tag Question.new %>
+  </dev>
 <% end %>
 
-<%= pagination @pagy %>
+<%= turbo_frame_tag "pagination_pagy" do %>
+  <%= pagination @pagy %>
 
-<%= render @questions %>
+  <%= turbo_frame_tag "questions" do %>
+    <%= render @questions %>
+  <% end %>
 
-<%= pagination @pagy %>
+  <%= pagination @pagy %>
+<% end %>
