@@ -44,7 +44,7 @@ module Admin
     def destroy
       @user.destroy
       flash[:success] = t('flash_messages.success.admin.users.deleted')
-      redirect_to admin_users_path
+      redirect_to admin_users_path, status: :see_other
     end
 
 

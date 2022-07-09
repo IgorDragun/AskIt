@@ -28,7 +28,7 @@
     <% end %>
     <% if policy(question).destroy? %>
       <%= link_to t("general.btn.delete"), question_path(question), class: "btn btn-danger",
-                  data: { method: :delete, confirm: t("general.confirm.delete") } %>
+                  data: { turbo_method: :delete, turbo_confirm: t("general.confirm.delete") } %>
     <% end %>
   </div>
 </article>

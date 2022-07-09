@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     flash[:success] = t('flash_messages.success.sessions.signed_out')
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 end

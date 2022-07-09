@@ -1,7 +1,15 @@
 import TomSelect from 'tom-select/dist/js/tom-select.popular'
 import Translations from './i18n/select.json'
 
-document.addEventListener("turbolinks:load", function() {
+let selects = []
+
+document.addEventListener("turbo:before-cache", function() {
+    selects.forEach((select) => {
+        select.destroy()
+    })
+})
+
+const rerender = function() {
     const i18n = Translations[document.querySelector('body').dataset.lang]
 
     document.querySelectorAll('.js-multiple-select').forEach((element) => {
@@ -35,6 +43,9 @@ document.addEventListener("turbolinks:load", function() {
             }
         }
 
-        new TomSelect(element, opts)
+        const el = new TomSelect(element, opts)
+        selects.push(el)
     })
-})
+}
+document.addEventListener("turbo:load", rerender)
+document.addEventListener("turbo:render", rerender)

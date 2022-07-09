@@ -12,6 +12,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hotwired/turbo-rails@npm:^7.1.3":
+  version: 7.1.3
+  resolution: "@hotwired/turbo-rails@npm:7.1.3"
+  dependencies:
+    "@hotwired/turbo": ^7.1.0
+    "@rails/actioncable": ^7.0
+  checksum: 7f741b50dbb46bf297c82e48a31b1b485c6f9bcc508616b812ba8ff8cbb69366a81157419990d196b3926d4169c2766650699f61b6da47d02eafc976767f091e
+  languageName: node
+  linkType: hard
+
+"@hotwired/turbo@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@hotwired/turbo@npm:7.1.0"
+  checksum: 4f71ebf2ff6a396d4031d048fa4d4dba6039aed9ad68436e6df4527e975acd8427c7d2f9b3e7f61f3e9c1af987193adf4e2b640c4033d4afd3e1f914ed05ba9f
+  languageName: node
+  linkType: hard
+
 "@npmcli/fs@npm:^2.1.0":
   version: 2.1.0
   resolution: "@npmcli/fs@npm:2.1.0"
@@ -46,26 +63,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:^6.0.0":
+"@rails/actioncable@npm:^6.0.5":
   version: 6.1.6
   resolution: "@rails/actioncable@npm:6.1.6"
   checksum: 25a3bd1aab6b503b90f2086f778be30322b4f9902af69c197180f8140b5893051b83ab576f72c3867e1053e672e2c2b38cdc75772c55d5123c9421d37ed15b60
   languageName: node
   linkType: hard
 
-"@rails/activestorage@npm:^6.0.0":
+"@rails/actioncable@npm:^7.0":
+  version: 7.0.3
+  resolution: "@rails/actioncable@npm:7.0.3"
+  checksum: 6ae5de0f9aaa8261117c2cc8b82ab41854222687422697158de952b8bf04a3f0c9e98620516129f6541970119ee3e4ae8af4b9cd4621c6617c0dae151eb07d64
+  languageName: node
+  linkType: hard
+
+"@rails/activestorage@npm:^6.0.5":
   version: 6.1.6
   resolution: "@rails/activestorage@npm:6.1.6"
   dependencies:
     spark-md5: ^3.0.0
   checksum: 699e036e1a2634a6a03734c7fd548e82cd99df481ee2e8f0ea052b950fbddcaa073bf7feff4a1525f1dc569a88800f4e119efb6a9547cb1b07b0085be0c00e02
-  languageName: node
-  linkType: hard
-
-"@rails/ujs@npm:6.0.5":
-  version: 6.0.5
-  resolution: "@rails/ujs@npm:6.0.5"
-  checksum: 71b11f1ab54cd30e30a8238e73512a8f3e1c07f85075b5b4a8dd61becc319ed4dd7d3725f08dc6ddd2cf932ba3a45f6b1ff4a19f5199c4f5015f3aebd5883e30
   languageName: node
   linkType: hard
 
@@ -134,16 +151,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:."
   dependencies:
+    "@hotwired/turbo-rails": ^7.1.3
     "@popperjs/core": ^2.11.5
-    "@rails/actioncable": ^6.0.0
-    "@rails/activestorage": ^6.0.0
-    "@rails/ujs": 6.0.5
+    "@rails/actioncable": ^6.0.5
+    "@rails/activestorage": ^6.0.5
     bootstrap: ^5.1.3
     bootstrap-icons: ^1.8.3
     esbuild: ^0.14.48
     sass: ^1.53.0
     tom-select: ^2.0.3
-    turbolinks: ^5.2.0
   languageName: unknown
   linkType: soft
 
@@ -1288,13 +1304,6 @@ __metadata:
   dependencies:
     "@orchidjs/sifter": ^0.9.1
   checksum: 53258221367809927278def7de0e07ee32ac8bec305cd2bf9186e4d362a551df9c44a54c1a1f3d0fc25a4026bfb4947a06027d2d8442f477ff6f6abe68988914
-  languageName: node
-  linkType: hard
-
-"turbolinks@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "turbolinks@npm:5.2.0"
-  checksum: df393c321ed19d9761e632ff357d3cb032a9ca32c07f1ef8202e5f5bb9d17fcc93cdec0d9dfcf0fbca56c373a9dffa2c151639383e663a72897ae434a877819b
   languageName: node
   linkType: hard
 

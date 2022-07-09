@@ -9,7 +9,7 @@ ruby '3.1.2'
 gem 'rails', '~> 7.0.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+gem 'propshaft', '~> 0.6'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
@@ -18,16 +18,18 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem 'jsbundling-rails'
+gem 'jsbundling-rails', '~> 1.0'
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem 'cssbundling-rails'
+gem 'cssbundling-rails', '~> 1.0'
+
+gem "turbo-rails", '~> 1.0'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -39,7 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -48,7 +50,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'activerecord-import', '~> 1.2'
-gem 'blueprinter'
+gem 'blueprinter', '~> 0.25'
 gem 'caxlsx', '~> 3.1'
 gem 'caxlsx_rails', '~> 0.6'
 # gem 'dotenv-rails', '~> 2.7'
@@ -76,7 +78,7 @@ group :development do
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.11', require: false
-  gem 'web-console'
+  gem 'web-console', '>= 4.1.0'
   gem 'letter_opener'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

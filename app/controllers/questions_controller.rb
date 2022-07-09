@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
       flash[:success] = t('flash_messages.success.questions.created')
       redirect_to questions_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,14 +34,14 @@ class QuestionsController < ApplicationController
       flash[:success] = t('flash_messages.success.questions.updated')
       redirect_to questions_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @question.destroy
     flash[:success] = t('flash_messages.success.questions.deleted')
-    redirect_to questions_path
+    redirect_to questions_path, status: :see_other
   end
 
   def show

@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
     flash[:success] = t('flash_messages.success.answers.deleted')
-    redirect_to questions_path(@question)
+    redirect_to questions_path(@question), status: :see_other
   end
 
   def edit; end

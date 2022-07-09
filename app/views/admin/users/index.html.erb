@@ -5,7 +5,7 @@
 
 <div class="btn-group mb-3">
   <%= link_to t(".download_zipped.btn_name"), admin_users_path(format: :zip),
-              class: "btn btn-secondary", data: {confirm: t(".download_zipped.confirm_msg")} %>
+              class: "btn btn-secondary", data: {turbo_confirm: t(".download_zipped.confirm_msg")} %>
 </div>
 
 <%= pagination @pagy %>
