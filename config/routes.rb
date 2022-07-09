@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  mount Sidekiq::Web => "/sidekiq", constraints: AdminConstraint.new
+  mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
   concern :commentable do
     resources :comments, only: %i[create destroy]

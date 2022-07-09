@@ -11,3 +11,12 @@ Style/Documentation:
 
 Rails/I18nLocaleTexts:
   Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 20

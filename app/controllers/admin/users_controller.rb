@@ -15,7 +15,7 @@ module Admin
 
         format.zip do
           UserBulkExportJob.perform_later current_user
-          flash[:success] = t(".download_zipped.success_msg")
+          flash[:success] = t('.download_zipped.success_msg')
           redirect_to admin_users_path
         end
       end
@@ -46,8 +46,6 @@ module Admin
       flash[:success] = t('flash_messages.success.admin.users.deleted')
       redirect_to admin_users_path, status: :see_other
     end
-
-
 
     private
 

@@ -4,7 +4,7 @@ module ApplicationHelper
   include Pagy::Frontend
 
   def prepend_flash
-    turbo_stream.prepend "flash", partial: "shared/flash"
+    turbo_stream.prepend 'flash', partial: 'shared/flash'
   end
 
   def full_title(page_title = '')

@@ -21,8 +21,6 @@ class UserBulkImportService < ApplicationService
     service.delete archive_key
   end
 
-
-
   private
 
   def read_zip_entries
@@ -33,7 +31,7 @@ class UserBulkImportService < ApplicationService
       entry = stream.get_next_entry
 
       break unless entry
-      next unless entry.name.end_with? ".xlsx"
+      next unless entry.name.end_with? '.xlsx'
 
       yield entry
     end
@@ -46,13 +44,12 @@ class UserBulkImportService < ApplicationService
     stream = Zip::InputStream.new(f)
     f.close
     stream
-
   end
 
   def users_from(data)
     sheet = RubyXL::Parser.parse_buffer(data)[0]
     sheet.map do |row|
-      cells = row.cells[0..2].map {|c| c&.value.to_s}
+      cells = row.cells[0..2].map { |c| c&.value.to_s }
       User.new name: cells[0],
                email: cells[1],
                password: cells[2],

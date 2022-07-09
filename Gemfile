@@ -23,13 +23,13 @@ gem 'jsbundling-rails', '~> 1.0'
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails', '~> 1.0'
 
-gem "turbo-rails", '~> 1.0'
+gem 'turbo-rails', '~> 1.0'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -62,8 +62,8 @@ gem 'pundit', '~> 2.1'
 gem 'rails-i18n', '~> 7'
 gem 'rubyXL', '~> 3.4'
 gem 'rubyzip', '~> 2'
-gem 'valid_email2', '~> 4'
 gem 'sidekiq', '~> 6'
+gem 'valid_email2', '~> 4'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -75,11 +75,11 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'bullet'
+  gem 'letter_opener'
   gem 'rubocop', '~> 1.18', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.11', require: false
   gem 'web-console', '>= 4.1.0'
-  gem 'letter_opener'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

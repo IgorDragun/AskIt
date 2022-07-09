@@ -150,7 +150,7 @@ ru:
       save: "Сохранить"
       log_in: "Войти"
       upload: "Загрузить"
-      show_comments: "Показать комментарии"
+      show_comments: "Комментарии"
       search: "Поиск"
     confirm:
       delete: "Вы уверены?"

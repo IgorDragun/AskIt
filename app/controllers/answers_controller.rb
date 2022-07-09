@@ -13,8 +13,17 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build answer_create_params
 
     if @answer.save
-      flash[:success] = t('flash_messages.success.answers.created')
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('flash_messages.success.answers.created')
+          redirect_to question_path(@question)
+        end
+
+        format.turbo_stream do
+          @answer = @answer.decorate
+          flash.now[:success] = t('flash_messages.success.answers.created')
+        end
+      end
     else
       load_question_answers(do_render: true)
     end
@@ -22,16 +31,33 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    flash[:success] = t('flash_messages.success.answers.deleted')
-    redirect_to questions_path(@question), status: :see_other
+    respond_to do |format|
+      format.html do
+        flash[:success] = t('flash_messages.success.answers.deleted')
+        redirect_to questions_path(@question), status: :see_other
+      end
+
+      format.turbo_stream do
+        flash.now[:success] = t('flash_messages.success.answers.deleted')
+      end
+    end
   end
 
   def edit; end
 
   def update
     if @answer.update answer_update_params
-      flash[:success] = t('flash_messages.success.answers.updated')
-      redirect_to question_path(@question, anchor: dom_id(@answer))
+      respond_to do |format|
+        format.html do
+          flash[:success] = t('flash_messages.success.answers.updated')
+          redirect_to question_path(@question, anchor: dom_id(@answer))
+        end
+
+        format.turbo_stream do
+          @answer = @answer.decorate
+          flash.now[:success] = t('flash_messages.success.answers.updated')
+        end
+      end
     else
       render :edit
     end

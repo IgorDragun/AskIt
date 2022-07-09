@@ -31,8 +31,6 @@ class User < ApplicationRecord
     obj.user == self
   end
 
-
-
   private
 
   def set_gravatar_hash
